@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/tailwindcss',
     'nuxt-schema-org',
-    'nuxt-appwrite'
+    'nuxt-appwrite',
+    '@vite-pwa/nuxt'
   ],
   fonts: {
     defaults: {
@@ -16,5 +17,12 @@ export default defineNuxtConfig({
     families: [
       { name: 'Nunito' },
     ]
+  },
+  pwa: {
+    manifest: {
+      name: 'Success Quotes',
+      short_name: 'Success Quotes',
+      theme_color: '#4f46e5',
+    }
   }
 })
