@@ -25,7 +25,8 @@ useSeoMeta({
 <template>
     <div class="container mx-auto p-4">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            <quote-preview :author="quote.author" :text="quote.text" :quoteId="quote.id" v-for="quote in quotes"
+            <loading-spinner v-if="!quotes.length" class="col-span-5"/>
+            <lazy-quote-preview :author="quote.author" :text="quote.text" :quoteId="quote.id" v-for="quote in quotes"
                 :key="quote.id" />
         </div>
     </div>
