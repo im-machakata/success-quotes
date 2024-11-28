@@ -28,5 +28,11 @@ export default defineNuxtConfig({
   appwrite: {
     endpoint: 'https://cloud.appwrite.io/v1',
     project: '67484957002c26c1c175',
+  },
+  runtimeConfig: {
+    public: {
+      database: '67484a96002083a38abd',
+      quotesTable: '67484aa300295a26b631',
+    }
   }
 })
