@@ -7,5 +7,14 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-schema-org',
     'nuxt-appwrite'
-  ]
+  ],
+  fonts: {
+    defaults: {
+      weights: [200, 300, 400, 500, 600, 700, 800, 900],
+      styles: ['normal', 'italic'],
+    },
+    families: [
+      { name: 'Nunito' },
+    ]
+  }
 })
