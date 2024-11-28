@@ -24,5 +24,9 @@ export default defineNuxtConfig({
       short_name: 'Success Quotes',
       theme_color: '#4f46e5',
     }
+  },
+  appwrite: {
+    endpoint: 'https://cloud.appwrite.io/v1',
+    project: '67484957002c26c1c175',
   }
 })
