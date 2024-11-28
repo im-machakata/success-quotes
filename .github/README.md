@@ -1,4 +1,3 @@
-markdown
 # Quotes Web App
 
 This web application allows users to view quotes from famous people and add new quotes to the collection. It also comes with an api, free for some endpoints.
