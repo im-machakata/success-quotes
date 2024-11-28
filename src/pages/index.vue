@@ -12,7 +12,6 @@ useSeoMeta({
 
 <template>
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-4">Success Quotes</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             <quote-preview :author="quote.author" :text="quote.text" :quoteId="quote.id" v-for="quote in quotes" :key="quote.id" />
         </div>
