@@ -6,6 +6,9 @@
 </template>
 <style>
 * {
-  @apply font-[Nunito]
+  @apply font-[Nunito];
+}
+body {
+  @apply bg-gray-50;
 }
 </style>
