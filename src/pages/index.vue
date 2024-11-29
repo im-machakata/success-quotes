@@ -8,6 +8,7 @@ const dbConnection = database.listDocuments(
     runtimeConfig.public.quotesTable, 
     [ 
         Query.orderAsc('text'),
+        Query.limit(24),
     ]
 );
 
