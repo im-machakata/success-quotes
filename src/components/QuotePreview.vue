@@ -18,14 +18,14 @@ const props = defineProps({
 <template>
     <div class="quote">
         <p class="text-gray-700">
-            <q class="line-clamp-4">{{ text }}</q>
+            <q class="line-clamp-3 lg:line-clamp-4">{{ text }}</q>
         </p>
-        <p class="text-gray-500 text-sm mt-2">&ndash; {{ author }}</p>
+        <p class="text-gray-500 text-sm mt-2 line-clamp-1">&ndash; {{ author }}</p>
     </div>
 </template>
 
 <style>
 .quote {
-    @apply bg-white p-4 rounded-lg shadow border-2 border-green-800 flex flex-col justify-between select-all;
+    @apply bg-white p-4 rounded-lg shadow border-2 border-green-600 flex flex-col justify-between select-all;
 }
 </style>
