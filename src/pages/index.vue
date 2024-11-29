@@ -23,8 +23,8 @@ useSeoMeta({
 </script>
 
 <template>
-    <div class="container mx-auto p-4">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div class="quotes-container mx-auto p-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-4">
             <loading-spinner v-if="!quotes.length" class="col-span-5"/>
             <lazy-quote-preview :author="quote.author" :text="quote.text" :quoteId="quote.id" v-for="quote in quotes"
                 :key="quote.id" />
@@ -33,7 +33,20 @@ useSeoMeta({
 </template>
 
 <style>
-.quote {
-    @apply bg-white p-4 rounded-lg shadow border-2 border-green-800;
+.quotes-container {
+    @apply max-w-[1200px];
 }
+
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-green-50;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-green-400 hover:bg-green-500;
+}
+
 </style>
