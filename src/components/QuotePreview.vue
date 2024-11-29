@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const route = useRoute();
 const props = defineProps({
     author: {
         type: String,
@@ -13,10 +14,14 @@ const props = defineProps({
         required: false,
     },
 });
+const isHome = route.fullPath == "/";
 </script>
 
 <template>
-    <div class="quote">
+    <div class="quote" :class="{
+        'select-all': !isHome,
+        'cursor-pointer': isHome
+    }">
         <p class="text-gray-700">
             <q class="line-clamp-3 lg:line-clamp-4">{{ text }}</q>
         </p>
@@ -26,6 +31,6 @@ const props = defineProps({
 
 <style>
 .quote {
-    @apply bg-white p-4 rounded-lg shadow border-2 border-green-600 flex flex-col justify-between select-all;
+    @apply bg-white p-4 rounded-lg shadow border-2 border-green-600 flex flex-col justify-between;
 }
 </style>
