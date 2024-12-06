@@ -24,7 +24,7 @@ This web application allows users to view quotes from famous people and add new 
     ```
 2.  **Install dependencies:**
     ```bash
-    pnpm install 
+    pnpm i 
     ```
 3.  **Run the application:**
     ```bash
