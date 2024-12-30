@@ -29,9 +29,8 @@ useSeoMeta({
 <template>
     <div class="quotes-container mx-auto p-4">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-4">
-            <loading-spinner v-if="!quotes.length" class="col-span-5" />
-            <lazy-quote-preview :author="quote.author" :text="quote.text" :quoteId="quote.id" v-for="quote in quotes"
-                :key="quote.id" />
+            <spinners-loading v-if="!quotes.length" class="col-span-5" />
+            <lazy-quotes-preview :quote="quote" v-for="quote in quotes" key="quote.$id" />
         </div>
     </div>
 </template>
