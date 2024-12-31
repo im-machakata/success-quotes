@@ -14,7 +14,7 @@ const copyQuote = () => {
 </script>
 
 <template>
-    <section class="container-full transition">
+    <section class="container-full transition duration-700 ease-in-out">
         <div class="w-3/4 lg:w-1/3">
             <div class="close-btn flex flex-col items-center justify-center mb-4">
                 <LazyNuxtImg src="https://img.icons8.com/?size=100&id=AqDEb8mCIrk9&format=png&color=000000" class="h-12 w-12 lg:h-20 lg:w-20 cursor-pointer" @click="$emit('close-quote')"/>
@@ -35,7 +35,7 @@ const copyQuote = () => {
 
 <style scoped>
 .container-full {
-    @apply bg-white/80 fixed top-0 left-0 right-0 w-screen h-full flex flex-col justify-center place-items-center mx-auto;
+    @apply bg-white/40 fixed top-0 left-0 right-0 w-screen h-full flex flex-col justify-center place-items-center mx-auto backdrop-blur-sm;
 }
 .quote {
     @apply bg-white p-4 rounded-lg shadow border-2 border-green-600 flex flex-col justify-between text-lg
