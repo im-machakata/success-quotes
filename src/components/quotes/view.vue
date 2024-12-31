@@ -19,15 +19,15 @@ const copyQuote = () => {
             <div class="close-btn flex flex-col items-center justify-center mb-4">
                 <LazyNuxtImg src="https://img.icons8.com/?size=100&id=AqDEb8mCIrk9&format=png&color=000000" class="h-12 w-12 lg:h-20 lg:w-20 cursor-pointer" @click="$emit('close-quote')"/>
             </div>
-            <div class="quote single select-all">
+            <div class="quote single select-none">
                 <q class="text-gray-700 line-clamp-3 lg:line-clamp-4">{{ quote.text }}</q>
                 <p class="text-gray-500 text-sm mt-2 line-clamp-1">&ndash; {{ quote.author }}</p>
             </div>
 
             <div class="quote-icons">
-                <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" @click="copyQuote" class="cursor-pointer" />
-                <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" />
-                <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" @click="copyQuote" class="cursor-pointer" id="copy" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" id="share" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" id="author" />
             </div>
         </div>
     </section>
