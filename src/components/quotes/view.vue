@@ -5,11 +5,17 @@ const props = defineProps({
         required: true,
     },
 });
-const emit = defineEmits(['close-quote']);
+const toastMessage = ref("");
+const quoteCopied = ref(false);
+const emit = defineEmits([
+    'close-quote',
+    'quote-copied'
+]);
 const copyQuote = () => {
     const {text, author} = props.quote;
     navigator.clipboard.writeText(`"${text}" - ${author}`);
     emit('close-quote');
+    emit('quote-copied');
 }
 </script>
 

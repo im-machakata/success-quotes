@@ -1,6 +1,7 @@
 <script setup>
 const quote = ref({});
 const quotes = ref([]);
+const toastMessage = ref('');
 const quoteToggled = ref(false);
 const runtimeConfig = useRuntimeConfig();
 const { database, Query } = useAppwrite();
@@ -12,6 +13,13 @@ const openQuote = (quoteItem) => {
 
 const closeQuote = e => {
     quoteToggled.value = false;
+}
+
+const showCopiedMessage = e => {
+    toastMessage.value = 'Copied to clipboard!';
+    setTimeout(() => {
+        toastMessage.value = '';
+    }, 5000);
 }
 
 const dbConnection = database.listDocuments(
@@ -41,9 +49,10 @@ useSeoMeta({
     <div class="quotes-container mx-auto p-4">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-4">
             <spinners-loading v-if="!quotes.length" class="col-span-5" />
-            <lazy-quotes-preview :quote="quote_item" v-for="quote_item in quotes" :key="quote.$id" @open-quote="openQuote" />
+            <lazy-quotes-preview :quote="quote_item" v-for="quote_item in quotes" :key="quote_item.$id" @open-quote="openQuote" />
         </div>
-        <lazy-quotes-view v-show="quoteToggled" @close-quote="closeQuote" :quote="quote" />
+        <lazy-quotes-view v-show="quoteToggled" @close-quote="closeQuote" :quote="quote" @quote-copied="showCopiedMessage" />
+        <lazy-alerts v-show="toastMessage" :message="toastMessage"/>
     </div>
 </template>
 
