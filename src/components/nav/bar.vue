@@ -10,11 +10,11 @@ const toggleSearch = () => {
     <nav class="sticky top-0 shadow-md">
         <div class="bg-green-600 p-4">
             <div class="container mx-auto flex justify-between items-center">
-                <NuxtLink href="#search">
+                <NuxtLink href="#search" @click.prevent="toggleSearch">
                     <img src="https://img.icons8.com/?size=100&id=83218&format=png&color=ffffff" alt="open search"
-                        class="h-5 w-5 cursor-pointer" v-show="!searchToggled" @click.prevent="toggleSearch"/>
+                        class="h-5 w-5 cursor-pointer" v-show="!searchToggled"/>
                     <img src="https://img.icons8.com/?size=100&id=82764&format=png&color=ffffff" alt="close search"
-                        class="h-5 w-5 cursor-pointer" v-show="searchToggled" @click.prevent="toggleSearch"/>
+                        class="h-5 w-5 cursor-pointer" v-show="searchToggled"/>
                 </NuxtLink>
                 <NuxtLink href="/">
                     <h1 class="text-white text-xl font-semibold">Success Quotes</h1>
