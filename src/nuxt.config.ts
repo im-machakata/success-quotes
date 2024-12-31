@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-schema-org',
     'nuxt-appwrite',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@nuxt/image'
   ],
   fonts: {
     defaults: {
