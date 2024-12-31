@@ -1,7 +1,18 @@
 <script setup>
+const quote = ref({});
+const quotes = ref([]);
+const quoteToggled = ref(false);
 const runtimeConfig = useRuntimeConfig();
 const { database, Query } = useAppwrite();
-const quotes = ref([]);
+
+const openQuote = (quoteItem) => {
+    quote.value = quoteItem;
+    quoteToggled.value = true
+};
+
+const closeQuote = e => {
+    quoteToggled.value = false;
+}
 
 const dbConnection = database.listDocuments(
     runtimeConfig.public.database,
@@ -30,8 +41,9 @@ useSeoMeta({
     <div class="quotes-container mx-auto p-4">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-4">
             <spinners-loading v-if="!quotes.length" class="col-span-5" />
-            <lazy-quotes-preview :quote="quote" v-for="quote in quotes" key="quote.$id" />
+            <lazy-quotes-preview :quote="quote_item" v-for="quote_item in quotes" :key="quote.$id" @open-quote="openQuote" />
         </div>
+        <lazy-quotes-view v-show="quoteToggled" @close-quote="closeQuote" :quote="quote" />
     </div>
 </template>
 
