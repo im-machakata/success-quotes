@@ -1,5 +1,5 @@
-<script lang="ts" setup>
-defineProps({
+<script setup>
+const props = defineProps({
     quote: {
         type: Object,
         required: true,
@@ -11,7 +11,7 @@ defineEmits(['open-quote']);
 <template>
     <article class="quote" @click="$emit('open-quote', quote)">
         <q class="text-gray-700 line-clamp-3 lg:text-lg">{{ quote.text }}</q>
-        <p class="text-gray-500 mt-2 line-clamp-1 flex items-center gap-2"><NuxtImg src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=229c52" /> {{ quote.author }}</p>
+        <p class="text-gray-500 mt-2 line-clamp-1 flex items-center gap-2"><NuxtImg src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=229c52" /> <span class="flex-grow truncate">{{ quote.author }}</span></p>
     </article>
 </template>
 
