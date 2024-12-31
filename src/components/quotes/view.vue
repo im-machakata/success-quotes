@@ -20,8 +20,8 @@ const copyQuote = () => {
                 <LazyNuxtImg src="https://img.icons8.com/?size=100&id=AqDEb8mCIrk9&format=png&color=000000" class="h-12 w-12 lg:h-20 lg:w-20 cursor-pointer" @click="$emit('close-quote')"/>
             </div>
             <div class="quote single select-none">
-                <q class="text-gray-700 line-clamp-3 lg:line-clamp-4">{{ quote.text }}</q>
-                <p class="text-gray-500 text-sm mt-2 line-clamp-1">&ndash; {{ quote.author }}</p>
+                <q class="text-gray-700">{{ quote.text }}</q>
+                <p class="text-gray-500 text-sm mt-2">&ndash; {{ quote.author }}</p>
             </div>
 
             <div class="quote-icons">
