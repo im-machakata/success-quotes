@@ -5,7 +5,12 @@ const props = defineProps({
         required: true,
     },
 });
-defineEmits(['close-quote'])
+const emit = defineEmits(['close-quote']);
+const copyQuote = () => {
+    const {text, author} = props.quote;
+    navigator.clipboard.writeText(`"${text}" - ${author}`);
+    emit('close-quote');
+}
 </script>
 
 <template>
@@ -20,7 +25,7 @@ defineEmits(['close-quote'])
             </div>
 
             <div class="quote-icons">
-                <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" @click="copyQuote" class="cursor-pointer" />
                 <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" />
                 <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" />
             </div>
