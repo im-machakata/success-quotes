@@ -1,3 +1,14 @@
+<script setup>
+useHead({
+  meta: [
+    { name: 'author', content: 'Isaac Machakata' },
+    { name: 'keywords', content: 'success quotes, motivational quotes, business quotes'}
+  ],
+  link: [
+    { rel: 'icon', href: 'https://img.icons8.com/?size=100&id=61893&format=png&color=239d53', type: 'image/png' }
+  ],
+})
+</script>
 <template>
   <main>
     <nav-bar />
@@ -8,6 +19,7 @@
 * {
   @apply font-[Nunito];
 }
+
 body {
   @apply bg-gray-50;
 }
