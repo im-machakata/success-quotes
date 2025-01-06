@@ -9,6 +9,11 @@ const props = defineProps({
         required: false,
         default: 'success'
     },
+    hideOnPhone: {
+        type: Boolean,
+        default: false,
+        required: false
+    }
 });
 </script>
 
@@ -16,6 +21,9 @@ const props = defineProps({
     <div class="alert" :class="{
         'alert-error': type.includes('error'),
         'alert-success': type.includes('success'),
+        'hidden lg:flex': hideOnPhone,
+        'flex': !hideOnPhone,
+
     }">
         <NuxtImg v-if="type.includes('success')" src="https://img.icons8.com/?size=100&id=59757&format=png&color=ffffff" />
         <span class="alert-text flex-grow">{{ message }}</span>
@@ -24,7 +32,7 @@ const props = defineProps({
 
 <style scoped>
 .alert {
-    @apply bottom-10 right-10 fixed p-4 rounded-lg shadow hidden lg:flex gap-2 items-center lg:w-1/5 z-10 transition duration-200;
+    @apply bottom-10 right-10 fixed p-4 rounded-lg shadow lg:flex gap-2 items-center lg:w-1/5 z-10 transition duration-200;
 }
 .alert img {
     @apply h-6 w-6;
