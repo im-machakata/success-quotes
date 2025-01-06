@@ -34,8 +34,8 @@ const copyQuote = () => {
 
             <div class="quote-icons">
                 <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" @click="copyQuote" class="cursor-pointer" id="copy" />
-                <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" @click="$emit('share-quote')" id="share" />
-                <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" @click="$emit('author-quotes')" id="author" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" @click="$emit('share-quote')" id="share" class="cursor-pointer" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" @click="$emit('author-quotes')" id="author" class="cursor-pointer" />
             </div>
         </div>
     </section>
