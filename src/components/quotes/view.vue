@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 const props = defineProps({
     quote: {
         type: Object,
@@ -8,10 +8,11 @@ const props = defineProps({
 const toastMessage = ref("");
 const quoteCopied = ref(false);
 const emit = defineEmits([
+    'like-quote',
     'close-quote',
     'quote-copied',
     'share-quote',
-    'author-quotes'
+    'author-quotes',
 ]);
 const copyQuote = () => {
     const {text, author} = props.quote;
@@ -36,6 +37,7 @@ const copyQuote = () => {
                 <quotes-icon url="https://img.icons8.com/?size=100&id=cMQQAnQp9rQR&format=png&color=000000" @click="copyQuote" class="cursor-pointer" id="copy" />
                 <quotes-icon url="https://img.icons8.com/?size=100&id=98959&format=png&color=000000" @click="$emit('share-quote')" id="share" class="cursor-pointer" />
                 <quotes-icon url="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" @click="$emit('author-quotes')" id="author" class="cursor-pointer" />
+                <quotes-icon url="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" @click="$emit('like-quote', quote)" id="like" class="cursor-pointer" />
             </div>
         </div>
     </section>
