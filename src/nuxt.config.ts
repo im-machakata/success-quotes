@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     'nuxt-appwrite',
     '@vite-pwa/nuxt',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/google-adsense'
   ],
   fonts: {
     defaults: {
@@ -29,6 +30,9 @@ export default defineNuxtConfig({
   appwrite: {
     endpoint: 'https://cloud.appwrite.io/v1',
     project: '67484957002c26c1c175',
+  },
+  googleAdsense: {
+    id: 'ca-pub-6238806291448360',
   },
   runtimeConfig: {
     public: {
