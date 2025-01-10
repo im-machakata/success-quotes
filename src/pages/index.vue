@@ -92,8 +92,12 @@ const loadMore = (moreQuotes = true) => {
 
 onMounted(async () => {
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("page")) page.value = urlParams.get("page");
-  loadQuotes().then(
+  if (urlParams.get("page")) {
+    page.value = urlParams.get("page");
+    urlParams.set("page", parseInt(page.value));
+    page.value = parseInt(page.value) - 1;
+  }
+  loadMore().then(
     function (response) {
       quotes.value = response.documents;
       loadingQuotes.value = false;
