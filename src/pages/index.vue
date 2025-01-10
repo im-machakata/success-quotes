@@ -125,10 +125,10 @@ useSeoMeta({
     <lazy-alerts v-show="toastMessage" :message="toastMessage" />
     <div class="flex items-center justify-center gap-4">
       <NuxtLink v-show="!loadingQuotes && quotes.length > 0"
-        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/4 text-center uppercase font-semibold"
+        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/2 md:w-1/4 text-center uppercase font-semibold"
         @click.prevent="loadMore(false)">Previous Quotes</NuxtLink>
       <NuxtLink v-show="!loadingQuotes && quotes.length > 0"
-        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/4 text-center uppercase font-semibold"
+        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/2 md:w-1/4 text-center uppercase font-semibold"
         @click.prevent="loadMore">More Quotes</NuxtLink>
     </div>
   </div>
