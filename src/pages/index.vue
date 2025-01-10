@@ -60,34 +60,29 @@ const likeQuote = (quote) => {
   toastComingSoon();
 };
 
-const loadMore = (moreQuotes = true) => {
+const loadMore = async (moreQuotes = true) => {
+  if (!moreQuotes && page.value <= 1) return;
+
+  page.value += moreQuotes ? 1 : -1;
   loadingQuotes.value = true;
-  if (!moreQuotes) {
-    if (page.value > 1) page.value = page.value - 1;
-  } else {
-    page.value = page.value + 1;
-  }
-  loadQuotes(moreQuotes).then(
-    function (response) {
-      if (response.documents.length === 0) {
-        page.value = page.value - 1;
-        toastMessage.value = "No new quotes available.";
-        setTimeout(() => {
-          toastMessage.value = "";
-        }, 5000);
-      } else {
-        quotes.value = response.documents;
-      }
-      loadingQuotes.value = false;
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.set("page", parseInt(page.value));
-      window.history.replaceState({}, '', `?${urlParams.toString()}`);
-    },
-    function (error) {
-      console.log(error);
-      loadingQuotes.value = false;
+
+  try {
+    const response = await loadQuotes(moreQuotes);
+    if (response.documents.length === 0) {
+      page.value -= 1;
+      toastMessage.value = "No new quotes available.";
+      setTimeout(() => (toastMessage.value = ""), 5000);
+    } else {
+      quotes.value = response.documents;
     }
-  );
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loadingQuotes.value = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set("page", page.value.toString());
+    window.history.replaceState({}, '', `?${urlParams.toString()}`);
+  }
 };
 
 onMounted(async () => {
@@ -118,13 +113,12 @@ useSeoMeta({
     <lazy-quotes-view :quote="quote" v-show="quoteToggled" @close-quote="closeQuote" @share-quote="toastComingSoon"
       @author-quotes="toastComingSoon" @quote-copied="showCopiedMessage" @like-quote="likeQuote" />
     <lazy-alerts v-show="toastMessage" :message="toastMessage" />
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex items-center justify-center gap-4 mt-4">
+      <NuxtLink v-show="!loadingQuotes" class="mb-4 text-sm text-center uppercase font-semibold"
+        :class="{ 'opacity-50': page === 1, 'cursor-pointer': page > 1 }" @click.prevent="loadMore(false)">Previous</NuxtLink>
       <NuxtLink v-show="!loadingQuotes && quotes.length > 0"
-        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/2 md:w-1/4 text-center uppercase font-semibold"
-        @click.prevent="loadMore(false)">Previous Quotes</NuxtLink>
-      <NuxtLink v-show="!loadingQuotes && quotes.length > 0"
-        class="border-2 border-green-600 bg-white p-2 rounded-lg mb-4 px-4 cursor-pointer text-sm w-1/2 md:w-1/4 text-center uppercase font-semibold"
-        @click.prevent="loadMore">More Quotes</NuxtLink>
+        class="mb-4 cursor-pointer text-sm text-center uppercase font-semibold" @click.prevent="loadMore">Next Page
+      </NuxtLink>
     </div>
   </div>
 </template>
