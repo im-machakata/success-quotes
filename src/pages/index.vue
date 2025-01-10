@@ -37,9 +37,9 @@ const toastComingSoon = () => {
 };
 
 const loadQuotes = (moreQuotes) => {
-  let filter = [Query.orderAsc("text"), Query.limit(24)];
+  let filter = [Query.orderAsc("text"), Query.limit(20)];
   if (moreQuotes) {
-    const offset = (page.value - 1) * 24;
+    const offset = (page.value - 1) * 20;
     filter.push(Query.offset(offset));
   };
   return database.listDocuments(
