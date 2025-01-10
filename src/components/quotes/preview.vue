@@ -10,10 +10,10 @@ defineEmits(['open-quote']);
 
 <template>
     <article class="quote" @click="$emit('open-quote', quote)">
-        <q class="text-gray-700 line-clamp-3 lg:text-lg">{{ quote.text }}</q>
+        <q class="text-gray-700 line-clamp-3 md:text-lg lg:text-xl">{{ quote.text }}</q>
         <p class="text-gray-500 mt-2 line-clamp-1 flex items-center gap-2">
             <NuxtImg src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=229c52" class="rounded-lg border-2 border-green-600" /> 
-            <span class="flex-grow truncate text-green-700 pr-2">{{ quote.author }}</span>
+            <span class="flex-grow truncate text-green-700 pr-2 text-md lg:text-lg">{{ quote.author }}</span>
         </p>
     </article>
 </template>
