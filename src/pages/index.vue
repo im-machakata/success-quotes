@@ -97,16 +97,7 @@ onMounted(async () => {
     urlParams.set("page", parseInt(page.value));
     page.value = parseInt(page.value) - 1;
   }
-  loadMore().then(
-    function (response) {
-      quotes.value = response.documents;
-      loadingQuotes.value = false;
-    },
-    function (error) {
-      console.log(error);
-      loadingQuotes.value = false;
-    }
-  );
+  loadMore();
   user.value = await account.get();
 });
 
